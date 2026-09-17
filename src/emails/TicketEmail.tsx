@@ -161,7 +161,7 @@ export function TicketEmail({
             }}
           >
             <Text style={{ margin: 0, fontSize: 13, color: SAPPHIRE_DARK }}>
-              Keep this email handy — your QR {many ? 'codes are' : 'code is'} your entry. No app or
+              Keep this email handy. Your QR {many ? 'codes are' : 'code is'} your entry, no app or
               account needed.
             </Text>
           </Section>
