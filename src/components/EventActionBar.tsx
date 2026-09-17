@@ -139,13 +139,27 @@ export function EventActionBar({
       {/* Free-event confirmation */}
       {state && state.ok && (
         <div className="mx-auto w-full max-w-3xl px-5 pb-3.5 sm:px-6 sm:pb-4">
-          <p
+          <div
             role="status"
-            className="rounded-lg bg-primary-50 px-3 py-2 text-sm text-[var(--text-brand)]"
+            className="flex flex-col gap-2 rounded-lg bg-primary-50 px-3 py-2.5 text-sm text-[var(--text-brand)] sm:flex-row sm:items-center sm:justify-between"
           >
-            You&rsquo;re in, {state.name.split(' ')[0]}! We&rsquo;ve saved {state.guests}{' '}
-            {state.guests === 1 ? 'spot' : 'spots'} under your name. See you there.
-          </p>
+            <span>
+              You&rsquo;re in, {state.name.split(' ')[0]}!{' '}
+              {state.emailed
+                ? `We emailed your ${state.guests === 1 ? 'ticket' : `${state.guests} tickets`}.`
+                : `We saved ${state.guests === 1 ? 'your spot' : `${state.guests} spots`}; your ${
+                    state.guests === 1 ? 'ticket is' : 'tickets are'
+                  } ready.`}
+            </span>
+            {state.ticketUrl && (
+              <a
+                href={state.ticketUrl}
+                className="focus-ring shrink-0 font-semibold underline underline-offset-4"
+              >
+                View {state.guests === 1 ? 'ticket' : 'your first ticket'} &rarr;
+              </a>
+            )}
+          </div>
         </div>
       )}
 

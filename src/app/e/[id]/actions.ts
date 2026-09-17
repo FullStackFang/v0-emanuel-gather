@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { issueTicketsForOrder } from '@/lib/tickets'
 import { viewOf, type EventRecord } from '@/lib/event-format'
 
 // Same shape event data is read with elsewhere; kept local so the action stays
@@ -13,7 +14,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const MAX_PARTY = 20
 
 export type RsvpState =
-  | { ok: true; guests: number; name: string }
+  | { ok: true; guests: number; name: string; ticketUrl?: string; emailed: boolean }
   | { ok: false; error: string }
   | null
 
@@ -94,8 +95,22 @@ export async function rsvpToEvent(_prev: RsvpState, formData: FormData): Promise
   })
   if (confirmErr) throw confirmErr
 
+  // Mint a ticket (token + QR) per seat and email them. The seat is already
+  // confirmed, so a delivery/issuance hiccup must not fail the RSVP -- log it and
+  // let the buyer proceed (issueTicketsForOrder is idempotent and can be retried).
+  // The future Stripe webhook calls this same function; that is the payment seam.
+  let ticketUrl: string | undefined
+  let emailed = false
+  try {
+    const result = await issueTicketsForOrder(orderId)
+    ticketUrl = result.ticketUrls[0]
+    emailed = result.delivered
+  } catch (err) {
+    console.error(`RSVP ${orderId}: ticket issuance failed`, err)
+  }
+
   // The event page is force-dynamic, but revalidate so any cached view reflects
   // the seats we just took.
   revalidatePath(`/e/${event.id}`)
-  return { ok: true, guests, name }
+  return { ok: true, guests, name, ticketUrl, emailed }
 }

@@ -134,3 +134,47 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
 }
+
+/* ============================================================================
+   Ticket page (/t/[token]) — the "stub" treatment.
+
+   .ticket-perf is the tear line between the event half and the admit half: a
+   dashed rule with a punched half-circle notch at each edge. The notches sit
+   just outside the card's content box; the card's `overflow-hidden` clips their
+   outer half, so they read as holes torn into the stub.
+   ============================================================================ */
+.ticket-perf {
+  position: relative;
+  height: 0;
+  margin: 0 1.25rem;
+  border-top: 2px dashed var(--border-default);
+}
+.ticket-perf::before,
+.ticket-perf::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--bg-secondary);
+  box-shadow: inset 0 1px 2px rgb(28 25 23 / 0.12);
+}
+.ticket-perf::before { left: -12px; }
+.ticket-perf::after { right: -12px; }
+
+/* The ticket materializes gently on load. Entry only (from a visible resting
+   state), motion-safe only; reduced-motion users get the static card. */
+@media (prefers-reduced-motion: no-preference) {
+  .ticket-materialize {
+    transition:
+      opacity 0.5s var(--ease-out, ease),
+      transform 0.5s var(--ease-out, ease);
+  }
+  @starting-style {
+    .ticket-materialize {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+}
