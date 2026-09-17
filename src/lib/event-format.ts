@@ -1,0 +1,109 @@
+// Pure, client-safe event types + display helpers. No server imports, so both
+// Client and Server Components can use these. Data access lives in events.ts.
+
+export type TicketType = {
+  id: string
+  name: string
+  price_cents: number
+  capacity: number
+  sold: number
+  held: number
+}
+
+export type EventRecord = {
+  id: string
+  title: string
+  description: string | null
+  location: string | null
+  starts_at: string | null
+  status: string
+  category: string | null
+  ticket_types: TicketType[]
+}
+
+// Stained-glass "cover" gradients drawn from the rose-window hues. An event's id
+// deterministically selects one, so a given event always wears the same colors.
+const MESHES = [
+  'radial-gradient(60% 70% at 20% 20%,#016395 0,transparent 60%),radial-gradient(55% 60% at 80% 15%,#615c9b 0,transparent 60%),radial-gradient(70% 80% at 65% 90%,#91226d 0,transparent 60%),radial-gradient(60% 70% at 15% 85%,#0085ab 0,transparent 60%),#143a63',
+  'radial-gradient(60% 70% at 25% 25%,#408796 0,transparent 60%),radial-gradient(60% 65% at 85% 30%,#b18c52 0,transparent 60%),radial-gradient(70% 80% at 60% 95%,#016395 0,transparent 60%),#17423f',
+  'radial-gradient(60% 70% at 22% 18%,#991b39 0,transparent 60%),radial-gradient(60% 65% at 82% 20%,#91226d 0,transparent 60%),radial-gradient(70% 80% at 60% 92%,#615c9b 0,transparent 60%),#4a1230',
+  'radial-gradient(60% 70% at 20% 22%,#0085ab 0,transparent 60%),radial-gradient(60% 65% at 85% 22%,#016395 0,transparent 60%),radial-gradient(70% 80% at 62% 95%,#408796 0,transparent 60%),#0c3f5a',
+  'radial-gradient(60% 70% at 22% 20%,#615c9b 0,transparent 60%),radial-gradient(60% 65% at 82% 24%,#b18c52 0,transparent 60%),radial-gradient(70% 80% at 60% 95%,#91226d 0,transparent 60%),#2e2a52',
+  'radial-gradient(60% 70% at 24% 22%,#408796 0,transparent 60%),radial-gradient(60% 65% at 80% 18%,#0085ab 0,transparent 60%),radial-gradient(70% 80% at 62% 92%,#615c9b 0,transparent 60%),#123a52',
+]
+
+export function meshFor(id: string): string {
+  let h = 0
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0
+  return MESHES[h % MESHES.length]
+}
+
+export type EventStatus = 'available' | 'almost_full' | 'sold_out' | 'ended'
+
+export type EventView = {
+  availableSeats: number
+  capacity: number
+  minPriceCents: number
+  isFree: boolean
+  hasEnded: boolean
+  status: EventStatus
+}
+
+const ALMOST_FULL_FRACTION = 0.1 // <=10% seats left reads as "almost full"
+
+export function viewOf(event: EventRecord, now: Date = new Date()): EventView {
+  const capacity = event.ticket_types.reduce((n, t) => n + t.capacity, 0)
+  const availableSeats = event.ticket_types.reduce(
+    (n, t) => n + Math.max(t.capacity - t.sold - t.held, 0),
+    0,
+  )
+  const prices = event.ticket_types.map((t) => t.price_cents)
+  const minPriceCents = prices.length ? Math.min(...prices) : 0
+  const isFree = prices.length > 0 && prices.every((p) => p === 0)
+  const hasEnded = event.starts_at ? new Date(event.starts_at) < now : false
+
+  let status: EventStatus
+  if (hasEnded) status = 'ended'
+  else if (availableSeats <= 0) status = 'sold_out'
+  else if (capacity > 0 && availableSeats <= Math.ceil(capacity * ALMOST_FULL_FRACTION))
+    status = 'almost_full'
+  else status = 'available'
+
+  return { availableSeats, capacity, minPriceCents, isFree, hasEnded, status }
+}
+
+export function formatPrice(cents: number): string {
+  if (cents === 0) return 'Free'
+  const dollars = cents / 100
+  return `$${Number.isInteger(dollars) ? dollars.toFixed(0) : dollars.toFixed(2)}`
+}
+
+const TZ = 'America/New_York'
+
+export function formatEventDate(iso: string | null): string {
+  if (!iso) return 'Date to be announced'
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    timeZone: TZ,
+  }).format(new Date(iso))
+}
+
+export function formatEventTime(iso: string | null): string {
+  if (!iso) return ''
+  return new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZone: TZ,
+  }).format(new Date(iso))
+}
+
+export function dateParts(iso: string | null): { month: string; day: string } {
+  if (!iso) return { month: '', day: '' }
+  const d = new Date(iso)
+  return {
+    month: new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: TZ }).format(d),
+    day: new Intl.DateTimeFormat('en-US', { day: 'numeric', timeZone: TZ }).format(d),
+  }
+}
