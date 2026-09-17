@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# dev email previews (written when RESEND_API_KEY is unset)
+/.emails/
+
 # next.js
 /.next/
 /out/

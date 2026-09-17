@@ -111,6 +111,34 @@ export function formatEventTime(iso: string | null): string {
   }).format(new Date(iso))
 }
 
+// "Add to Google Calendar" deep link. No end time in the schema, so assume a
+// DEFAULT_DURATION. Dates must be UTC basic format (YYYYMMDDTHHMMSSZ).
+const DEFAULT_DURATION_MS = 2 * 60 * 60 * 1000
+
+function toGCalStamp(d: Date): string {
+  return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z')
+}
+
+export function googleCalendarUrl(e: {
+  title: string
+  starts_at: string | null
+  location: string | null
+  details?: string | null
+}): string | null {
+  if (!e.starts_at) return null
+  const start = new Date(e.starts_at)
+  if (Number.isNaN(start.getTime())) return null
+  const end = new Date(start.getTime() + DEFAULT_DURATION_MS)
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: e.title,
+    dates: `${toGCalStamp(start)}/${toGCalStamp(end)}`,
+  })
+  if (e.location) params.set('location', e.location)
+  if (e.details) params.set('details', e.details)
+  return `https://www.google.com/calendar/render?${params.toString()}`
+}
+
 export function dateParts(iso: string | null): { month: string; day: string } {
   if (!iso) return { month: '', day: '' }
   const d = new Date(iso)
