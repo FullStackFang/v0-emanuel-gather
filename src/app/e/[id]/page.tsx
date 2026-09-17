@@ -93,6 +93,7 @@ export default async function EventPage({ params }: { params: Promise<{ id: stri
 
         <div className="mt-10">
           <EventActionBar
+            eventId={event.id}
             status={v.status}
             isFree={v.isFree}
             minPriceCents={v.minPriceCents}

@@ -18,7 +18,19 @@ export type EventRecord = {
   starts_at: string | null
   status: string
   category: string | null
+  group_slug: string | null
   ticket_types: TicketType[]
+}
+
+// An organizing program (The Streicker Center, Interfaith, ...) an event belongs
+// to. Drives grouped browsing on the home page and a per-group landing page.
+export type EventGroup = {
+  slug: string
+  name: string
+  tagline: string | null
+  blurb: string | null
+  accent: string | null
+  sort_order: number
 }
 
 // Stained-glass "cover" gradients drawn from the rose-window hues. An event's id

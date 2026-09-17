@@ -2,10 +2,11 @@ import Link from 'next/link'
 
 // Masthead top bar with the Fraunces wordmark and a gold hairline rule. Host
 // sign-in points at /dashboard; the proxy bounces unauthenticated visitors to /login.
-export function SiteHeader() {
+// `wide` matches the broader explore/listing pages so the wordmark stays aligned.
+export function SiteHeader({ wide = false }: { wide?: boolean }) {
   return (
     <header className="bg-[var(--bg-primary)]">
-      <div className="mx-auto w-full max-w-3xl px-5 sm:px-6">
+      <div className={`mx-auto w-full px-5 sm:px-6 ${wide ? 'max-w-6xl' : 'max-w-3xl'}`}>
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
