@@ -1,0 +1,9 @@
+- generic [active] [ref=f2e1]:
+  - main [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - heading "Emanuel Gather" [level=1] [ref=f2e70]
+      - paragraph [ref=f2e71]: Host sign in
+      - button "Sign in with Microsoft" [ref=f2e72] [cursor=pointer]
+      - paragraph [ref=f2e78]: For Temple Emanuel staff
+  - button "Open Next.js Dev Tools" [ref=f2e84] [cursor=pointer]
+  - alert [ref=f2e88]

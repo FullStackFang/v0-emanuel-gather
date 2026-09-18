@@ -17,7 +17,7 @@ export default async function CreateEventPage() {
   return (
     <>
       <SiteHeader wide />
-      <main className="mx-auto w-full max-w-2xl flex-1 px-5 pb-20 pt-6 sm:px-6">
+      <main className="mx-auto w-full max-w-5xl flex-1 px-5 pb-20 pt-6 sm:px-6">
         <Link
           href="/dashboard"
           className="focus-ring text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
