@@ -37,6 +37,10 @@ export default async function DashboardPage({
   const past = events.filter(isPast)
   const shown = tab === 'past' ? past : upcoming
 
+  // The empty upcoming state carries its own primary "Create event" call to
+  // action, so the header button would be a duplicate there. Show exactly one.
+  const showHeaderCreate = !(tab === 'upcoming' && shown.length === 0)
+
   async function signOut() {
     'use server'
     const supabase = await createClient()
@@ -52,13 +56,15 @@ export default async function DashboardPage({
           <h1 className="flex-1 font-display text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
             Events
           </h1>
-          <Link
-            href="/dashboard/create"
-            className="focus-ring inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary-600 px-4 text-sm font-semibold text-white shadow-[var(--shadow-primary)] transition-colors hover:bg-primary-700"
-          >
-            <PlusIcon />
-            Create event
-          </Link>
+          {showHeaderCreate && (
+            <Link
+              href="/dashboard/create"
+              className="focus-ring inline-flex h-10 items-center gap-1.5 rounded-lg bg-primary-600 px-4 text-sm font-semibold text-white shadow-[var(--shadow-primary)] transition-colors hover:bg-primary-700"
+            >
+              <PlusIcon />
+              Create event
+            </Link>
+          )}
         </div>
 
         <div className="mb-2 flex items-center gap-1 border-b border-[var(--border-subtle)]">
@@ -80,6 +86,12 @@ export default async function DashboardPage({
                     {event.status}
                   </span>
                 )}
+                <Link
+                  href={`/dashboard/${event.id}/edit`}
+                  className="focus-ring shrink-0 rounded-lg border border-[var(--border-default)] px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Edit
+                </Link>
               </div>
             ))}
           </ul>

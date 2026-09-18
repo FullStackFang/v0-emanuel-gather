@@ -139,6 +139,28 @@ export function googleCalendarUrl(e: {
   return `https://www.google.com/calendar/render?${params.toString()}`
 }
 
+// Split a stored UTC instant back into the Eastern wall-clock <input type="date">
+// and <input type="time"> values, so the edit form starts on the same moment the
+// host originally entered.
+export function nyInputParts(iso: string | null): { date: string; time: string } {
+  if (!iso) return { date: '', time: '' }
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return { date: '', time: '' }
+  // en-CA renders YYYY-MM-DD; 24-hour clock; NY zone.
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: TZ,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).formatToParts(d)
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? ''
+  const hour = get('hour') === '24' ? '00' : get('hour') // Intl can emit "24" at midnight
+  return { date: `${get('year')}-${get('month')}-${get('day')}`, time: `${hour}:${get('minute')}` }
+}
+
 export function dateParts(iso: string | null): { month: string; day: string } {
   if (!iso) return { month: '', day: '' }
   const d = new Date(iso)
