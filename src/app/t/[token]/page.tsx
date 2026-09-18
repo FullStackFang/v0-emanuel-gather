@@ -72,20 +72,20 @@ export default async function TicketPage({ params }: { params: Promise<{ token: 
         }
 
   return (
-    <>
+    <div className="flex h-svh flex-col overflow-hidden sm:h-auto sm:min-h-svh sm:overflow-visible">
       <SiteHeader />
-      <main className="mx-auto flex w-full max-w-md flex-1 flex-col px-5 pb-16 pt-4 sm:pt-6">
+      <main className="mx-auto flex min-h-0 w-full max-w-[25rem] flex-1 flex-col px-5 pb-4 pt-3 sm:pb-10 sm:pt-6">
         <Link
           href={`/e/${event.id}`}
-          className="focus-ring inline-flex items-center gap-1 self-start rounded-md text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+          className="focus-ring inline-flex flex-none items-center gap-1 self-start rounded-md text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
         >
           <span aria-hidden>&larr;</span> Event details
         </Link>
 
-        <article className="ticket-materialize mt-4 overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] shadow-[var(--shadow-lg)]">
+        <article className="ticket-materialize mt-3 flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] shadow-[var(--shadow-lg)] sm:mt-4 sm:flex-none">
           {/* Stained-glass cover */}
           <div
-            className="relative flex aspect-[16/7] flex-col justify-between p-4"
+            className="relative flex aspect-[16/6] flex-none flex-col justify-between p-4"
             style={{ background: meshFor(event.id) }}
           >
             <div className="absolute inset-0" style={{ background: DIM }} />
@@ -96,7 +96,7 @@ export default async function TicketPage({ params }: { params: Promise<{ token: 
             )}
             <div className="relative z-10">
               <h1
-                className="font-display text-2xl font-semibold leading-tight tracking-tight text-white"
+                className="font-display text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl"
                 style={{ textShadow: '0 2px 14px rgba(0,0,0,0.5)' }}
               >
                 {event.title}
@@ -106,17 +106,18 @@ export default async function TicketPage({ params }: { params: Promise<{ token: 
           </div>
 
           {/* Event facts */}
-          <div className="flex flex-wrap gap-x-8 gap-y-4 px-6 py-5">
+          <div className="flex flex-none flex-wrap gap-x-8 gap-y-3 px-6 py-4">
             <Fact label="Date" value={formatEventDate(event.starts_at)} />
             <Fact label="Time" value={formatEventTime(event.starts_at) || 'TBA'} />
             {event.location && <Fact label="Location" value={event.location} />}
           </div>
 
           {/* Tear line */}
-          <div className="ticket-perf" aria-hidden />
+          <div className="ticket-perf flex-none" aria-hidden />
 
-          {/* Admit / QR */}
-          <div className="flex flex-col items-center gap-4 px-6 pb-7 pt-6 text-center">
+          {/* Admit / QR — fills the space left over and centers, so the ticket
+              lands on one screen; the code scales down on short viewports. */}
+          <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-2.5 px-6 py-4 text-center sm:flex-none sm:gap-4 sm:py-7">
             <span className="font-mono text-2xs font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]">
               Admit one
             </span>
@@ -127,7 +128,7 @@ export default async function TicketPage({ params }: { params: Promise<{ token: 
               }`}
             >
               <div
-                className="h-44 w-44 [&>svg]:h-full [&>svg]:w-full"
+                className="aspect-square w-[clamp(8rem,26svh,11rem)] [&>svg]:h-full [&>svg]:w-full"
                 dangerouslySetInnerHTML={{ __html: svg }}
               />
             </div>
@@ -162,11 +163,7 @@ export default async function TicketPage({ params }: { params: Promise<{ token: 
             )}
           </div>
         </article>
-
-        <p className="mt-6 text-center text-xs text-[var(--text-tertiary)]">
-          Temple Emanu-El · Come, let us gather.
-        </p>
       </main>
-    </>
+    </div>
   )
 }

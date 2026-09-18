@@ -178,3 +178,70 @@ body {
     }
   }
 }
+
+/* ============================================================================
+   Event page (/e/[id]) — the stained-glass hero.
+
+   .glass-light is a soft warm highlight that drifts slowly across the mesh, so
+   light appears to move through the window (the Rose Window signature). It sits
+   above the dimming layer and uses `screen` so it brightens rather than paints.
+   Motion-safe only; reduced-motion holds a single flattering position.
+   ============================================================================ */
+.glass-light {
+  position: absolute;
+  inset: -35%;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    42% 42% at 50% 42%,
+    rgb(255 246 214 / 0.42),
+    rgb(150 190 220 / 0.14) 55%,
+    transparent 72%
+  );
+  transform: translate(6%, -4%) scale(1.1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .glass-light {
+    animation: glass-drift 26s var(--ease-in-out) infinite alternate;
+  }
+  @keyframes glass-drift {
+    0% {
+      transform: translate(-16%, -12%) scale(1);
+    }
+    50% {
+      transform: translate(18%, 8%) scale(1.18);
+    }
+    100% {
+      transform: translate(-6%, 16%) scale(1.06);
+    }
+  }
+}
+
+/* Confirmation moment: a single gold sheen sweeps the "you're going" banner
+   once, then rests. Motion-safe only. */
+@media (prefers-reduced-motion: no-preference) {
+  .reg-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .reg-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgb(234 179 8 / 0.45) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    animation: reg-sheen 1.15s var(--ease-out) 1;
+  }
+  @keyframes reg-sheen {
+    to {
+      transform: translateX(120%);
+    }
+  }
+}
