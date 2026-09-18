@@ -21,6 +21,20 @@ export async function getPublishedEvents(): Promise<EventRecord[]> {
   return (data as EventRecord[]) ?? []
 }
 
+// A host's own events, every status (draft/published/cancelled). RLS's
+// events_select_own already restricts rows to the caller, but we also filter by
+// host_id explicitly so published events by *other* hosts don't leak in.
+export async function getHostEvents(hostId: string): Promise<EventRecord[]> {
+  const supabase = await createClient()
+  const { data, error } = await supabase
+    .from('events')
+    .select(SELECT)
+    .eq('host_id', hostId)
+    .order('starts_at', { ascending: false, nullsFirst: false })
+  if (error) throw error
+  return (data as EventRecord[]) ?? []
+}
+
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export async function getEvent(id: string): Promise<EventRecord | null> {
