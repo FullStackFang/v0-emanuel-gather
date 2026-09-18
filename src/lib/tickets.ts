@@ -86,24 +86,35 @@ export async function issueTicketsForOrder(orderId: string): Promise<IssueResult
       ? `Your ${total} tickets for ${event.title}`
       : `Your ticket for ${event.title}`
 
-  const result = await sendEmail({
-    to: order.buyer_email,
-    subject,
-    react: TicketEmail({
-      eventTitle: event.title,
-      dateLabel: formatEventDate(event.starts_at),
-      timeLabel: formatEventTime(event.starts_at),
-      location: event.location,
-      buyerName: order.buyer_name ?? '',
-      tickets,
-    }),
-  })
+  // The tickets are already minted and persisted. A delivery failure must NOT lose
+  // them -- the caller still needs the URLs to show the buyer their ticket -- so a
+  // send error is logged and swallowed, not thrown. Tickets are re-sendable later.
+  let delivered = false
+  let previewPath: string | undefined
+  try {
+    const result = await sendEmail({
+      to: order.buyer_email,
+      subject,
+      react: TicketEmail({
+        eventTitle: event.title,
+        dateLabel: formatEventDate(event.starts_at),
+        timeLabel: formatEventTime(event.starts_at),
+        location: event.location,
+        buyerName: order.buyer_name ?? '',
+        tickets,
+      }),
+    })
+    delivered = result.delivered
+    previewPath = result.previewPath
+  } catch (err) {
+    console.error(`issueTicketsForOrder: email send failed for order ${orderId}`, err)
+  }
 
   return {
     issued: total,
-    delivered: result.delivered,
+    delivered,
     ticketUrls: tickets.map((t) => t.ticketUrl),
-    previewPath: result.previewPath,
+    previewPath,
   }
 }
 
