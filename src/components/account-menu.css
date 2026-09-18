@@ -1,0 +1,40 @@
+/* Account menu: the dropdown morphs open from its trigger (the avatar), scaling
+   up from the top-right rather than just appearing. Kept in CSS so the close
+   animation can play before visibility flips off (the delayed visibility
+   transition), which class toggling alone can't express cleanly. */
+.am-menu {
+  transform-origin: top right;
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 170ms var(--ease-out),
+    transform 200ms var(--ease-out),
+    visibility 0s linear 200ms;
+}
+
+.am-menu[data-open='true'] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 170ms var(--ease-out),
+    transform 200ms var(--ease-out),
+    visibility 0s;
+}
+
+.am-chevron {
+  transition: transform 200ms var(--ease-out);
+}
+.am-trigger[aria-expanded='true'] .am-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .am-menu,
+  .am-chevron {
+    transition: none;
+  }
+}

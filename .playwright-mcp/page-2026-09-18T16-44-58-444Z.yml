@@ -1,0 +1,344 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Emanuel Gather" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - link "Host sign in" [ref=e6] [cursor=pointer]:
+        - /url: /dashboard
+  - main [ref=e8]:
+    - navigation "Event groups" [ref=e9]:
+      - link "All events" [ref=e10] [cursor=pointer]:
+        - /url: /
+      - link "The Streicker Center" [ref=e12] [cursor=pointer]:
+        - /url: /g/streicker
+      - link "Interfaith at Emanu-El" [ref=e14] [cursor=pointer]:
+        - /url: /g/interfaith
+    - generic [ref=e16]:
+      - paragraph [ref=e17]: Temple Emanu-El · New York City
+      - heading "Come, let us gather." [level=1] [ref=e18]
+      - paragraph [ref=e19]: Gatherings, learning, music, and community — reserve your place.
+    - 'link "Featured · Learning Open Torah and Coffee: Weekly Learning Thu, Sep 24 · 9:00 AM · Temple Emanu-El · Greenwald Hall Free RSVP" [ref=e21] [cursor=pointer]':
+      - /url: /e/20000000-0000-4000-8000-000000000004
+      - generic [ref=e22]:
+        - generic [ref=e24]: Featured · Learning
+        - generic [ref=e25]: Open
+        - generic [ref=e27]:
+          - 'heading "Torah and Coffee: Weekly Learning" [level=2] [ref=e28]'
+          - paragraph [ref=e29]: Thu, Sep 24 · 9:00 AM · Temple Emanu-El · Greenwald Hall
+      - generic [ref=e30]:
+        - generic [ref=e31]: Free
+        - generic [ref=e33]: RSVP
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - link [ref=e37] [cursor=pointer]:
+            - /url: /g/streicker
+            - heading "The Streicker Center" [level=2] [ref=e39]
+          - paragraph [ref=e40]: Big ideas, bold voices, unforgettable nights.
+        - link "See all →" [ref=e41] [cursor=pointer]:
+          - /url: /g/streicker
+      - generic [ref=e42]:
+        - 'link "Talk 20 left Tue, Sep 29 Evan Gershkovich: A Reporter''s Story $36" [ref=e44] [cursor=pointer]':
+          - /url: /e/3a000000-0000-4000-8000-000000000001
+          - generic [ref=e45]:
+            - generic [ref=e47]: Talk
+            - generic [ref=e48]: 20 left
+          - generic [ref=e50]:
+            - generic [ref=e51]: Tue, Sep 29
+            - 'heading "Evan Gershkovich: A Reporter''s Story" [level=3] [ref=e52]'
+            - generic [ref=e53]: $36
+        - link "Talk Open Thu, Oct 1 An Evening with Darren Star $36" [ref=e55] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000002
+          - generic [ref=e56]:
+            - generic [ref=e58]: Talk
+            - generic [ref=e59]: Open
+          - generic [ref=e61]:
+            - generic [ref=e62]: Thu, Oct 1
+            - heading "An Evening with Darren Star" [level=3] [ref=e63]
+            - generic [ref=e64]: $36
+        - 'link "Talk Open Tue, Oct 13 Thomas Friedman: A Changing World $45" [ref=e66] [cursor=pointer]':
+          - /url: /e/3a000000-0000-4000-8000-000000000003
+          - generic [ref=e67]:
+            - generic [ref=e69]: Talk
+            - generic [ref=e70]: Open
+          - generic [ref=e72]:
+            - generic [ref=e73]: Tue, Oct 13
+            - 'heading "Thomas Friedman: A Changing World" [level=3] [ref=e74]'
+            - generic [ref=e75]: $45
+        - link "Concert 8 left Thu, Oct 15 Orchestra of St. Luke's in Concert $54" [ref=e77] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000004
+          - generic [ref=e78]:
+            - generic [ref=e80]: Concert
+            - generic [ref=e81]: 8 left
+          - generic [ref=e83]:
+            - generic [ref=e84]: Thu, Oct 15
+            - heading "Orchestra of St. Luke's in Concert" [level=3] [ref=e85]
+            - generic [ref=e86]: $54
+        - link "Concert Open Sat, Oct 24 Emanu-El Chamber Players in Concert $36" [ref=e88] [cursor=pointer]:
+          - /url: /e/5eed0000-0000-4000-8000-000000000003
+          - generic [ref=e89]:
+            - generic [ref=e91]: Concert
+            - generic [ref=e92]: Open
+          - generic [ref=e94]:
+            - generic [ref=e95]: Sat, Oct 24
+            - heading "Emanu-El Chamber Players in Concert" [level=3] [ref=e96]
+            - generic [ref=e97]: $36
+        - link "Talk Sold out Mon, Oct 26 An Evening with Sarah Silverman $45" [ref=e99] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000005
+          - generic [ref=e100]:
+            - generic [ref=e102]: Talk
+            - generic [ref=e103]: Sold out
+          - generic [ref=e105]:
+            - generic [ref=e106]: Mon, Oct 26
+            - heading "An Evening with Sarah Silverman" [level=3] [ref=e107]
+            - generic [ref=e108]: $45
+        - 'link "Talk Open Tue, Oct 27 Women on the Move: Ann Patchett $18" [ref=e110] [cursor=pointer]':
+          - /url: /e/3a000000-0000-4000-8000-000000000007
+          - generic [ref=e111]:
+            - generic [ref=e113]: Talk
+            - generic [ref=e114]: Open
+          - generic [ref=e116]:
+            - generic [ref=e117]: Tue, Oct 27
+            - 'heading "Women on the Move: Ann Patchett" [level=3] [ref=e118]'
+            - generic [ref=e119]: $18
+        - 'link "Lecture Open Tue, Oct 27 America @ 250: The Jews of Newport $18" [ref=e121] [cursor=pointer]':
+          - /url: /e/3a000000-0000-4000-8000-000000000006
+          - generic [ref=e122]:
+            - generic [ref=e124]: Lecture
+            - generic [ref=e125]: Open
+          - generic [ref=e127]:
+            - generic [ref=e128]: Tue, Oct 27
+            - 'heading "America @ 250: The Jews of Newport" [level=3] [ref=e129]'
+            - generic [ref=e130]: $18
+        - link "Talk Open Mon, Nov 2 An Evening with Gail Simmons $24" [ref=e132] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000008
+          - generic [ref=e133]:
+            - generic [ref=e135]: Talk
+            - generic [ref=e136]: Open
+          - generic [ref=e138]:
+            - generic [ref=e139]: Mon, Nov 2
+            - heading "An Evening with Gail Simmons" [level=3] [ref=e140]
+            - generic [ref=e141]: $24
+        - 'link "Exhibition Open Wed, Nov 4 Ziv Koren: Photographs from the Front Lines Free" [ref=e143] [cursor=pointer]':
+          - /url: /e/3a000000-0000-4000-8000-000000000009
+          - generic [ref=e144]:
+            - generic [ref=e146]: Exhibition
+            - generic [ref=e147]: Open
+          - generic [ref=e149]:
+            - generic [ref=e150]: Wed, Nov 4
+            - 'heading "Ziv Koren: Photographs from the Front Lines" [level=3] [ref=e151]'
+            - generic [ref=e152]: Free
+        - link "Talk Sold out Wed, Nov 11 An Evening with Dustin Hoffman $54" [ref=e154] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000010
+          - generic [ref=e155]:
+            - generic [ref=e157]: Talk
+            - generic [ref=e158]: Sold out
+          - generic [ref=e160]:
+            - generic [ref=e161]: Wed, Nov 11
+            - heading "An Evening with Dustin Hoffman" [level=3] [ref=e162]
+            - generic [ref=e163]: $54
+        - 'link "Talk Open Tue, Nov 17 Women on the Move: Joyce Maynard (Online) Free" [ref=e165] [cursor=pointer]':
+          - /url: /e/3a000000-0000-4000-8000-000000000012
+          - generic [ref=e166]:
+            - generic [ref=e168]: Talk
+            - generic [ref=e169]: Open
+          - generic [ref=e171]:
+            - generic [ref=e172]: Tue, Nov 17
+            - 'heading "Women on the Move: Joyce Maynard (Online)" [level=3] [ref=e173]'
+            - generic [ref=e174]: Free
+        - link "Film Open Wed, Nov 18 The Jazz Singer, with Eric Goldman $12" [ref=e176] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000011
+          - generic [ref=e177]:
+            - generic [ref=e179]: Film
+            - generic [ref=e180]: Open
+          - generic [ref=e182]:
+            - generic [ref=e183]: Wed, Nov 18
+            - heading "The Jazz Singer, with Eric Goldman" [level=3] [ref=e184]
+            - generic [ref=e185]: $12
+        - link "Family Open Sun, Dec 6 A Streicker Chanukah Celebration Free" [ref=e187] [cursor=pointer]:
+          - /url: /e/3a000000-0000-4000-8000-000000000013
+          - generic [ref=e188]:
+            - generic [ref=e190]: Family
+            - generic [ref=e191]: Open
+          - generic [ref=e193]:
+            - generic [ref=e194]: Sun, Dec 6
+            - heading "A Streicker Chanukah Celebration" [level=3] [ref=e195]
+            - generic [ref=e196]: Free
+    - generic [ref=e197]:
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - link [ref=e200] [cursor=pointer]:
+            - /url: /g/interfaith
+            - heading "Interfaith at Emanu-El" [level=2] [ref=e202]
+          - paragraph [ref=e203]: Neighbors in faith — in conversation, study, and community.
+        - link "See all →" [ref=e204] [cursor=pointer]:
+          - /url: /g/interfaith
+      - generic [ref=e205]:
+        - link "Talk Open Mon, Oct 5 Interfaith Book Launch & Panel Free" [ref=e207] [cursor=pointer]:
+          - /url: /e/3b000000-0000-4000-8000-000000000003
+          - generic [ref=e208]:
+            - generic [ref=e210]: Talk
+            - generic [ref=e211]: Open
+          - generic [ref=e213]:
+            - generic [ref=e214]: Mon, Oct 5
+            - heading "Interfaith Book Launch & Panel" [level=3] [ref=e215]
+            - generic [ref=e216]: Free
+        - link "Travel Open Mon, Oct 12 Interfaith Journey to Spain $54" [ref=e218] [cursor=pointer]:
+          - /url: /e/3b000000-0000-4000-8000-000000000009
+          - generic [ref=e219]:
+            - generic [ref=e221]: Travel
+            - generic [ref=e222]: Open
+          - generic [ref=e224]:
+            - generic [ref=e225]: Mon, Oct 12
+            - heading "Interfaith Journey to Spain" [level=3] [ref=e226]
+            - generic [ref=e227]: $54
+        - link "Social Open Thu, Nov 5 Interfaith Wine Tasting $18" [ref=e229] [cursor=pointer]:
+          - /url: /e/3b000000-0000-4000-8000-000000000004
+          - generic [ref=e230]:
+            - generic [ref=e232]: Social
+            - generic [ref=e233]: Open
+          - generic [ref=e235]:
+            - generic [ref=e236]: Thu, Nov 5
+            - heading "Interfaith Wine Tasting" [level=3] [ref=e237]
+            - generic [ref=e238]: $18
+        - 'link "Lecture Open Tue, Nov 10 Neighbors in Faith: An Interfaith Lecture Free" [ref=e240] [cursor=pointer]':
+          - /url: /e/3b000000-0000-4000-8000-000000000002
+          - generic [ref=e241]:
+            - generic [ref=e243]: Lecture
+            - generic [ref=e244]: Open
+          - generic [ref=e246]:
+            - generic [ref=e247]: Tue, Nov 10
+            - 'heading "Neighbors in Faith: An Interfaith Lecture" [level=3] [ref=e248]'
+            - generic [ref=e249]: Free
+        - link "Dinner Open Fri, Nov 13 Interfaith Shabbat Dinner with St. Paul the Apostle Free" [ref=e251] [cursor=pointer]:
+          - /url: /e/3b000000-0000-4000-8000-000000000001
+          - generic [ref=e252]:
+            - generic [ref=e254]: Dinner
+            - generic [ref=e255]: Open
+          - generic [ref=e257]:
+            - generic [ref=e258]: Fri, Nov 13
+            - heading "Interfaith Shabbat Dinner with St. Paul the Apostle" [level=3] [ref=e259]
+            - generic [ref=e260]: Free
+        - link "Study Open Tue, Nov 17 Interfaith Bible Study Free" [ref=e262] [cursor=pointer]:
+          - /url: /e/3b000000-0000-4000-8000-000000000006
+          - generic [ref=e263]:
+            - generic [ref=e265]: Study
+            - generic [ref=e266]: Open
+          - generic [ref=e268]:
+            - generic [ref=e269]: Tue, Nov 17
+            - heading "Interfaith Bible Study" [level=3] [ref=e270]
+            - generic [ref=e271]: Free
+        - 'link "Study Open Tue, Dec 1 Defense Against the Dark Arts: A Text Study Free" [ref=e273] [cursor=pointer]':
+          - /url: /e/3b000000-0000-4000-8000-000000000008
+          - generic [ref=e274]:
+            - generic [ref=e276]: Study
+            - generic [ref=e277]: Open
+          - generic [ref=e279]:
+            - generic [ref=e280]: Tue, Dec 1
+            - 'heading "Defense Against the Dark Arts: A Text Study" [level=3] [ref=e281]'
+            - generic [ref=e282]: Free
+        - 'link "Workshop Open Thu, Dec 10 Ebru: Turkish Water Marbling Workshop Free" [ref=e284] [cursor=pointer]':
+          - /url: /e/3b000000-0000-4000-8000-000000000005
+          - generic [ref=e285]:
+            - generic [ref=e287]: Workshop
+            - generic [ref=e288]: Open
+          - generic [ref=e290]:
+            - generic [ref=e291]: Thu, Dec 10
+            - 'heading "Ebru: Turkish Water Marbling Workshop" [level=3] [ref=e292]'
+            - generic [ref=e293]: Free
+        - link "Social Open Wed, Dec 16 Interfaith Lunch Group Free" [ref=e295] [cursor=pointer]:
+          - /url: /e/3b000000-0000-4000-8000-000000000007
+          - generic [ref=e296]:
+            - generic [ref=e298]: Social
+            - generic [ref=e299]: Open
+          - generic [ref=e301]:
+            - generic [ref=e302]: Wed, Dec 16
+            - heading "Interfaith Lunch Group" [level=3] [ref=e303]
+            - generic [ref=e304]: Free
+    - generic [ref=e305]:
+      - heading "More at Temple Emanu-El" [level=2] [ref=e306]
+      - generic [ref=e307]:
+        - link "Community Open Fri, Sep 25 Community Shabbat Dinner Free" [ref=e309] [cursor=pointer]:
+          - /url: /e/20000000-0000-4000-8000-000000000002
+          - generic [ref=e310]:
+            - generic [ref=e312]: Community
+            - generic [ref=e313]: Open
+          - generic [ref=e315]:
+            - generic [ref=e316]: Fri, Sep 25
+            - heading "Community Shabbat Dinner" [level=3] [ref=e317]
+            - generic [ref=e318]: Free
+        - 'link "Study Open Sat, Sep 26 Torah & Tea: Morning Study Free" [ref=e320] [cursor=pointer]':
+          - /url: /e/5eed0000-0000-4000-8000-000000000002
+          - generic [ref=e321]:
+            - generic [ref=e323]: Study
+            - generic [ref=e324]: Open
+          - generic [ref=e326]:
+            - generic [ref=e327]: Sat, Sep 26
+            - 'heading "Torah & Tea: Morning Study" [level=3] [ref=e328]'
+            - generic [ref=e329]: Free
+        - link "Service Open Fri, Oct 2 Shabbat Dinner & Song Free" [ref=e331] [cursor=pointer]:
+          - /url: /e/5eed0000-0000-4000-8000-000000000001
+          - generic [ref=e332]:
+            - generic [ref=e334]: Service
+            - generic [ref=e335]: Open
+          - generic [ref=e337]:
+            - generic [ref=e338]: Fri, Oct 2
+            - heading "Shabbat Dinner & Song" [level=3] [ref=e339]
+            - generic [ref=e340]: Free
+        - link "Celebration 15 left Mon, Oct 5 Family Sukkot Celebration Free" [ref=e342] [cursor=pointer]:
+          - /url: /e/5eed0000-0000-4000-8000-000000000004
+          - generic [ref=e343]:
+            - generic [ref=e345]: Celebration
+            - generic [ref=e346]: 15 left
+          - generic [ref=e348]:
+            - generic [ref=e349]: Mon, Oct 5
+            - heading "Family Sukkot Celebration" [level=3] [ref=e350]
+            - generic [ref=e351]: Free
+        - link "Talk 15 left Thu, Oct 15 An Evening on Memory and Exile $36" [ref=e353] [cursor=pointer]:
+          - /url: /e/20000000-0000-4000-8000-000000000001
+          - generic [ref=e354]:
+            - generic [ref=e356]: Talk
+            - generic [ref=e357]: 15 left
+          - generic [ref=e359]:
+            - generic [ref=e360]: Thu, Oct 15
+            - heading "An Evening on Memory and Exile" [level=3] [ref=e361]
+            - generic [ref=e362]: $36
+        - link "Concert Sold out Thu, Nov 5 Jerusalem Quartet in Concert $54" [ref=e364] [cursor=pointer]:
+          - /url: /e/20000000-0000-4000-8000-000000000003
+          - generic [ref=e365]:
+            - generic [ref=e367]: Concert
+            - generic [ref=e368]: Sold out
+          - generic [ref=e370]:
+            - generic [ref=e371]: Thu, Nov 5
+            - heading "Jerusalem Quartet in Concert" [level=3] [ref=e372]
+            - generic [ref=e373]: $54
+    - generic [ref=e374]:
+      - heading "Past" [level=2] [ref=e375]
+      - list [ref=e376]:
+        - listitem [ref=e377]:
+          - link "Sep 10 Concert High Holy Days Choral Concert 7:00 PM · Temple Emanu-El · Main Sanctuary Ended $25" [ref=e378] [cursor=pointer]:
+            - /url: /e/20000000-0000-4000-8000-000000000005
+            - generic [ref=e379]:
+              - generic [ref=e381]: Sep
+              - generic [ref=e382]: "10"
+            - generic [ref=e383]:
+              - generic [ref=e384]: Concert
+              - heading "High Holy Days Choral Concert" [level=3] [ref=e385]
+              - paragraph [ref=e386]: 7:00 PM · Temple Emanu-El · Main Sanctuary
+            - generic [ref=e387]:
+              - generic [ref=e388]: Ended
+              - generic [ref=e389]: $25
+        - listitem [ref=e390]:
+          - link "Sep 5 Community High Holy Days Community Breakfast 9:00 AM · Temple Emanu-El, Isaac Mayer Wise Hall Ended Free" [ref=e391] [cursor=pointer]:
+            - /url: /e/5eed0000-0000-4000-8000-000000000006
+            - generic [ref=e392]:
+              - generic [ref=e394]: Sep
+              - generic [ref=e395]: "5"
+            - generic [ref=e396]:
+              - generic [ref=e397]: Community
+              - heading "High Holy Days Community Breakfast" [level=3] [ref=e398]
+              - paragraph [ref=e399]: 9:00 AM · Temple Emanu-El, Isaac Mayer Wise Hall
+            - generic [ref=e400]:
+              - generic [ref=e401]: Ended
+              - generic [ref=e402]: Free
+  - alert [ref=e403]

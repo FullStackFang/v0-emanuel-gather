@@ -41,13 +41,6 @@ export default async function DashboardPage({
   // action, so the header button would be a duplicate there. Show exactly one.
   const showHeaderCreate = !(tab === 'upcoming' && shown.length === 0)
 
-  async function signOut() {
-    'use server'
-    const supabase = await createClient()
-    await supabase.auth.signOut()
-    redirect('/login')
-  }
-
   return (
     <>
       <SiteHeader wide />
@@ -96,18 +89,6 @@ export default async function DashboardPage({
             ))}
           </ul>
         )}
-
-        <form action={signOut} className="mt-12 border-t border-[var(--border-subtle)] pt-6">
-          <p className="mb-2 text-xs text-[var(--text-tertiary)]">
-            Signed in as {user.email ?? user.id}
-          </p>
-          <button
-            type="submit"
-            className="focus-ring rounded-lg border border-[var(--border-default)] px-4 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-          >
-            Sign out
-          </button>
-        </form>
       </main>
     </>
   )
